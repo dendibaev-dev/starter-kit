@@ -1,17 +1,20 @@
-import { ThemeProvider } from '@material-ui/core';
-import React, { Suspense } from 'react';
-import ReactDOM from 'react-dom';
+import { ThemeProvider } from "@material-ui/core";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import React, { Suspense } from "react";
+import ReactDOM from "react-dom";
 import "./common/i18n";
-import theme from './common/theme';
-import { App } from './components/App';
+import theme from "./common/theme";
+import { App } from "./components/App";
+import Preloader from "./components/preloader";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Suspense fallback="...loading">
-      <ThemeProvider theme={theme}>
-    <App />
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Suspense fallback={<Preloader />}>
+        <App />
+      </Suspense>
     </ThemeProvider>
-    </Suspense>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
