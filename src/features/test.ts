@@ -20,6 +20,7 @@ export const {
     },
     fetchAllFailed: (state) => {
       state.isLoading = false;
+      state.errors = {text: 'failed.request'}
     },
   },
 });
