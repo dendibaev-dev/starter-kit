@@ -16,6 +16,7 @@
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
     "clsx": "^1.1.1",
+    "google-spreadsheet-to-json": "^1.0.0",
     "i18next": "^20.2.1",
     "i18next-browser-languagedetector": "^6.1.0",
     "i18next-http-backend": "^1.2.1",
@@ -33,7 +34,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "update-i18n": "node update-i18n.js"
   },
   "eslintConfig": {
     "extends": [
