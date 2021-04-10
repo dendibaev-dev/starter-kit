@@ -6,8 +6,10 @@ const options = {
 
 const useStyles = makeStyles(
   (theme: Theme) => ({
-    root: {
-      padding: theme.spacing(0, 2),
+    root: {},
+    content: {
+      display: "flex",
+      justifyContent: "space-between",
     },
   }),
   options

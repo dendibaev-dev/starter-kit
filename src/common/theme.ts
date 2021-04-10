@@ -49,10 +49,6 @@ const theme = createMuiTheme({
           height: '100%',
           width: '100%'
         },
-        '#root': {
-          paddingLeft: '16px',
-          paddingRight: '16px',
-        }
       },
     },
   }
