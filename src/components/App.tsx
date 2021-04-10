@@ -1,12 +1,13 @@
-import { Box, Typography } from '@material-ui/core';
-import { useTranslation } from 'react-i18next';
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Routes } from "../pages/routes";
 
 export const App = () => {
-  const {t} = useTranslation()
   return (
-    <Box>
-    <Typography variant="h1">{t("hello")}</Typography>
-    <Typography variant="body1">{t("text")}</Typography>
-    </Box>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={Routes} />
+        <Route component={Routes} />
+      </Switch>
+    </BrowserRouter>
   );
 };

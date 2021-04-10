@@ -48,6 +48,10 @@ const theme = createMuiTheme({
         'html, body, #root': {
           height: '100%',
           width: '100%'
+        },
+        '#root': {
+          paddingLeft: '16px',
+          paddingRight: '16px',
         }
       },
     },
