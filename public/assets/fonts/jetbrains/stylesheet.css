@@ -1,0 +1,38 @@
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("JetBrainsMono-Regular.eot");
+  src: url("JetBrainsMono-Regular.eot?#iefix") format("embedded-opentype"),
+    url("JetBrainsMono-Regular.woff2") format("woff2"),
+    url("JetBrainsMono-Regular.woff") format("woff"),
+    url("JetBrainsMono-Regular.ttf") format("truetype"),
+    url("JetBrainsMono-Regular.svg#JetBrainsMono-Regular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("JetBrainsMono-Light.eot");
+  src: url("JetBrainsMono-Light.eot?#iefix") format("embedded-opentype"),
+    url("JetBrainsMono-Light.woff2") format("woff2"),
+    url("JetBrainsMono-Light.woff") format("woff"),
+    url("JetBrainsMono-Light.ttf") format("truetype"),
+    url("JetBrainsMono-Light.svg#JetBrainsMono-Light") format("svg");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("JetBrainsMono-Medium.eot");
+  src: url("JetBrainsMono-Medium.eot?#iefix") format("embedded-opentype"),
+    url("JetBrainsMono-Medium.woff2") format("woff2"),
+    url("JetBrainsMono-Medium.woff") format("woff"),
+    url("JetBrainsMono-Medium.ttf") format("truetype"),
+    url("JetBrainsMono-Medium.svg#JetBrainsMono-Medium") format("svg");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
