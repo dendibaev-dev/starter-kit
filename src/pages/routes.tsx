@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
+import Header from "../components/header";
 import { currentLocaleActions } from "../features/currentLocale";
 import AuthPage from "./AuthPage";
 import HomePage from "./HomePage";
@@ -18,11 +19,14 @@ export const Routes = () => {
   }, [dispatch, i18n.language]);
 
   return (
+    <>
+    <Header />
     <Switch>
       <Route exact path={`/:lng/`} component={HomePage} />
       <Route exact path={`/:lng/auth`} component={AuthPage} />
       <Route exact path={`/:lng/post/:id`} component={PostPage} />
       <Route component={NotFoundPage} />
     </Switch>
+    </>
   );
 };

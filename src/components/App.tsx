@@ -8,7 +8,7 @@ export const App = () => {
       <Switch>
         <Route exact path="/" render={() => <Redirect to="ru/" />} />
         <Route path="/ru/*" component={Routes} />
-        <Route path="/en/*" component={Routes} />
+        <Route path="/uz/*" component={Routes} />
         <Route component={NotFoundPage} />
       </Switch>
     </BrowserRouter>

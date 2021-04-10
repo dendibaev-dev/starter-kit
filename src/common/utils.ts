@@ -22,3 +22,4 @@ export const api = {
     throw new Error(message);
   },
 };
+

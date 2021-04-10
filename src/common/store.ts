@@ -4,7 +4,7 @@ import { testReducer } from "../features/test";
 
 export default configureStore({
   reducer: {
-    currnetLocale: currentLocaleReducer,
+    currentLocale: currentLocaleReducer,
     test: testReducer,
   },
 });
