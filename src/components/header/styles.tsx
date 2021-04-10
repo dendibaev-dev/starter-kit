@@ -6,10 +6,13 @@ const options = {
 
 const useStyles = makeStyles(
   (theme: Theme) => ({
-    root: {},
+    root: {
+    },
     content: {
       display: "flex",
       justifyContent: "space-between",
+      alignItems: 'center',
+      maxWidth: theme.breakpoints.values.xl
     },
   }),
   options
