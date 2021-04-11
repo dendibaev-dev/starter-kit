@@ -1,9 +1,9 @@
-import { Typography } from "@material-ui/core";
 import { ComponentType } from "react";
 import { RouteComponentProps } from "react-router-dom";
+import NotFound from "../components/not-found/NotFound";
 
 const NotFoundPage: ComponentType<RouteComponentProps> = () => {
-  return <Typography variant="h2">NotFound page</Typography>;
+  return <NotFound />;
 };
 
 export default NotFoundPage;

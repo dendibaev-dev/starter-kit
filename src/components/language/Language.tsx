@@ -1,7 +1,7 @@
 import { ButtonBase, Menu, MenuItem } from "@material-ui/core";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { ReactComponent as RuIcon } from "./assets/icons/ru.svg";
 import { ReactComponent as UzIcon } from "./assets/icons/uz.svg";
@@ -11,7 +11,7 @@ export const Language = () => {
   const classes = useStyles();
   const { i18n } = useTranslation();
   const history = useHistory();
-  const currentLocale = useSelector((state: any) => state.currentLocale)
+  const currentLocale = useSelector((state: any) => state.currentLocale);
 
   const [anchorEl, setAnchorEl] = useState(null);
   const isOpen = Boolean(anchorEl);

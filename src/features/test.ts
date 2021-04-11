@@ -1,9 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-export const {
-  reducer: testReducer,
-  actions: testActions,
-} = createSlice({
+export const { reducer: testReducer, actions: testActions } = createSlice({
   name: "test",
   initialState: {
     isLoading: false,
@@ -20,7 +17,7 @@ export const {
     },
     fetchAllFailed: (state) => {
       state.isLoading = false;
-      state.errors = {text: 'failed.request'}
+      state.errors = { text: "failed.request" };
     },
   },
 });

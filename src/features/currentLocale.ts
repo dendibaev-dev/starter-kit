@@ -7,7 +7,6 @@ export const {
   name: "current-locale",
   initialState: "ru",
   reducers: {
-    handleLocale: (_, { payload }:PayloadAction<string>) => payload,
+    handleLocale: (_, { payload }: PayloadAction<string>) => payload,
   },
 });
-
