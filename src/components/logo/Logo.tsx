@@ -1,5 +1,6 @@
 import { Hidden, Typography } from "@material-ui/core";
 import { ComponentType } from "react";
+import { Link } from "react-router-dom";
 import { ReactComponent as LogoIcon } from "./assets/logo.svg";
 import useStyles from "./styles";
 
@@ -12,7 +13,7 @@ export const Logo: ComponentType<{ size?: string; text?: string | any }> = ({
   });
 
   return (
-    <div className={classes.root}>
+    <Link to="/" className={classes.root}>
       <LogoIcon className={classes.icon} />
       <Hidden smDown>
         {text && (
@@ -21,6 +22,6 @@ export const Logo: ComponentType<{ size?: string; text?: string | any }> = ({
           </Typography>
         )}
       </Hidden>
-    </div>
+    </Link>
   );
 };

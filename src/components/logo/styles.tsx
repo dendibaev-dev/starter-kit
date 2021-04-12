@@ -9,12 +9,14 @@ const useStyles = makeStyles(
     root: {
       display: "flex",
       alignItems: "center",
+      textDecoration: "none",
     },
     icon: (props: any) => ({
       height: props.size === "large" ? 50 : 32,
       width: props.size === "large" ? 54 : 36,
     }),
     text: {
+      color: theme.palette.primary.main,
       paddingLeft: theme.spacing(1),
     },
   }),
