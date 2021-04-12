@@ -16,10 +16,10 @@ export const Auth: ComponentType = () => {
       spacing={2}
       className={classes.root}
     >
-      <Grid item xs={12} lg={8}>
+      <Grid item xs={12} lg={6}>
         <Typography variant="h4">{t("auth")}</Typography>
       </Grid>
-      <Grid item xs={12} lg={8}>
+      <Grid item xs={12} lg={6}>
         <AuthForm />
       </Grid>
     </Grid>

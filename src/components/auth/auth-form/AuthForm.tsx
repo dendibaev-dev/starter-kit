@@ -1,4 +1,4 @@
-import { Button, ButtonBase, Grid, TextField } from "@material-ui/core";
+import { Button, ButtonBase, TextField } from "@material-ui/core";
 import { useFormik } from "formik";
 import { ComponentType } from "react";
 import { useTranslation } from "react-i18next";
@@ -51,18 +51,18 @@ export const AuthForm: ComponentType = () => {
           fullWidth
         />
       </div>
-      <Grid container className={classes.actions} spacing={2}>
-        <Grid item md={2}>
-          <Button type="submit" className={classes.btn} variant="contained">
-            {t("auth.btn")}
-          </Button>
-        </Grid>
-        <Grid item>
-          <ButtonBase component={Link} to={`/${currentLocale}/reg`}>
-            {t("sign.btn")}
-          </ButtonBase>
-        </Grid>
-      </Grid>
+      <div className={classes.actions}>
+        <Button type="submit" className={classes.btn} variant="contained">
+          {t("auth.btn")}
+        </Button>
+        <ButtonBase
+          className={classes.link}
+          component={Link}
+          to={`/${currentLocale}/reg`}
+        >
+          {t("sign.btn")}
+        </ButtonBase>
+      </div>
     </form>
   );
 };

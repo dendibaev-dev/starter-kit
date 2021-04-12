@@ -1,4 +1,4 @@
-import { createMuiTheme } from "@material-ui/core";
+import { createMuiTheme } from "@material-ui/core/styles";
 
 const theme = createMuiTheme({
   palette: {
@@ -45,13 +45,13 @@ const theme = createMuiTheme({
   components: {
     MuiCssBaseline: {
       styleOverrides: {
-        'html, body, #root': {
-          height: '100%',
-          width: '100%'
+        "html, body, #root": {
+          height: "100%",
+          width: "100%",
         },
       },
     },
-  }
+  },
 });
 
 export default theme;
