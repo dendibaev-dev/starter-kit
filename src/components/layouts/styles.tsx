@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   header: {
     flexShrink: 0,
     width: "100%",
-    marginBottom: theme.spacing(8),
+    marginBottom: theme.spacing(2),
   },
   footer: {
     flexShrink: 0,

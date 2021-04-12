@@ -11,14 +11,14 @@ import Preloader from "./components/preloader";
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
+    <Provider store={store}>
       <Suspense fallback={<Preloader />}>
-        <Provider store={store}>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
           <App />
-        </Provider>
+        </ThemeProvider>
       </Suspense>
-    </ThemeProvider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );
