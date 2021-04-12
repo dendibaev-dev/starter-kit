@@ -33,6 +33,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   footer: {
     flexShrink: 0,
     width: "100%",
+    padding: theme.spacing(1, 0),
   },
 }));
 

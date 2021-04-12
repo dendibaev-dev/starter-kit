@@ -1,15 +1,15 @@
 import { makeStyles, Theme } from "@material-ui/core";
 
 const options = {
-  name: "language",
+  name: "dark-mode",
 };
 
 const useStyles = makeStyles(
   (theme: Theme) => ({
     root: {},
     icon: {
-      height: 24,
-      width: 28,
+      height: 22,
+      width: 22,
     },
   }),
   options

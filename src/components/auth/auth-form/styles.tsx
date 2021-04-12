@@ -1,5 +1,4 @@
-import { Theme } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, Theme } from "@material-ui/core";
 
 const options = {
   name: "auth-form",

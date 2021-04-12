@@ -1,7 +1,10 @@
 import { createMuiTheme } from "@material-ui/core/styles";
 
+const darkMode = localStorage.getItem("dark-mode");
+
 const theme = createMuiTheme({
   palette: {
+    mode: darkMode ? "dark" : "light",
     primary: {
       light: "#5BE584",
       main: "#00AB55",

@@ -13,6 +13,15 @@ const useStyles = makeStyles(
       alignItems: "center",
       maxWidth: theme.breakpoints.values.xl,
     },
+    actions: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      minWidth: 72,
+      [theme.breakpoints.up("md")]: {
+        minWidth: 84,
+      },
+    },
   }),
   options
 );
