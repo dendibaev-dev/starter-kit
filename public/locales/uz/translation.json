@@ -5,12 +5,12 @@
   "action.backHome": "Бош саҳифага қайтиш",
   "page.notFound": "Кечирасиз, саҳифа топилмади!",
   "page.notFound.text": "Кечирасиз, сиз қидираётган саҳифани топа олмадик. Еҳтимол УРЛ мистйпед айтинг? Сизнинг имло текшириш учун ишонч ҳосил қилинг.",
-  "auth": "",
-  "auth.btn": "",
-  "sign": "",
-  "sign.btn": "",
-  "login": "",
-  "login.placeholder": "",
-  "password": "",
-  "password.placeholder": ""
+  "auth": "Авторизация",
+  "auth.btn": "Кириш",
+  "sign": "Рўйхатдан ўтиш",
+  "sign.btn": "Рўйхатдан ўтиш",
+  "login": "Логин",
+  "login.placeholder": "Логини киритинг",
+  "password": "Пароль",
+  "password.placeholder": "Паролни киритинг"
 }
