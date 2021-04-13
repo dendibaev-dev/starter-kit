@@ -8,18 +8,27 @@ export const api = {
     throw new Error(message);
   },
   post: async (url: string, data: any) => {
-    const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}${url}`,{
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    });
+    const response = await fetch(
+      `${process.env.REACT_APP_API_BASE_URL}${url}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    );
     if (response.status >= 200 && response.status < 300) {
       return response.json();
     }
     const message = await response.text();
     throw new Error(message);
   },
+  fakeAuth: async (data: any) => {
+    if (data.login === "admin" && data.password === "admin1") {
+      return { success: true, errors: null };
+    } else {
+      return { success: false, errors: { text: "auth.form.inValid" } };
+    }
+  },
 };
-

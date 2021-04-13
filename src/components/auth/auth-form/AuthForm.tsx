@@ -8,7 +8,9 @@ import { State } from "../../../common/store";
 import { authInitialValues, authValidationScheme } from "../auth-model";
 import useStyles from "./styles";
 
-export const AuthForm: ComponentType = () => {
+export const AuthForm: ComponentType<{ submitForm: Function }> = ({
+  submitForm,
+}) => {
   const classes = useStyles();
   const { t } = useTranslation();
   const currentLocale = useSelector((state: State) => state.currentLocale);
@@ -16,7 +18,7 @@ export const AuthForm: ComponentType = () => {
   const formik = useFormik({
     initialValues: authInitialValues,
     validationSchema: authValidationScheme,
-    onSubmit: (data) => console.log(data),
+    onSubmit: (data) => submitForm(data),
   });
 
   return (
@@ -33,7 +35,7 @@ export const AuthForm: ComponentType = () => {
           placeholder={t("login.placeholder")}
           value={formik.values.login}
           onChange={formik.handleChange}
-          error={formik.touched && Boolean(formik.errors.login)}
+          error={formik.touched.login && Boolean(formik.errors.login)}
           variant="outlined"
           fullWidth
         />
@@ -46,7 +48,7 @@ export const AuthForm: ComponentType = () => {
           type="password"
           value={formik.values.password}
           onChange={formik.handleChange}
-          error={formik.touched && Boolean(formik.errors.password)}
+          error={formik.touched.password && Boolean(formik.errors.password)}
           variant="outlined"
           fullWidth
         />

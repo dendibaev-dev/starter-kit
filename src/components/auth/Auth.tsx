@@ -1,12 +1,39 @@
 import { Grid, Typography } from "@material-ui/core";
-import { ComponentType } from "react";
+import { useSnackbar } from "notistack";
+import { ComponentType, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { useDispatch, useSelector } from "react-redux";
+import { Redirect } from "react-router";
+import { State } from "../../common/store";
+import { login } from "../../thunks/auth";
 import AuthForm from "./auth-form";
 import useStyles from "./styles";
 
 export const Auth: ComponentType = () => {
   const classes = useStyles();
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+  const { enqueueSnackbar } = useSnackbar();
+
+  const authErrors = useSelector((state: State) => state.auth.errors);
+  const authSuccess = useSelector((state: State) => state.auth.success);
+  const currentLocale = useSelector((state: State) => state.currentLocale);
+
+  const submitForm = (data: Record<string, any>) => {
+    dispatch(login(data));
+  };
+
+  useEffect(() => {
+    if (authErrors?.text) {
+      enqueueSnackbar(t(authErrors?.text), {
+        variant: "error",
+      });
+    }
+  }, [authErrors, enqueueSnackbar, t]);
+
+  if (authSuccess) {
+    return <Redirect to={`/${currentLocale}/dashboard`} />;
+  }
 
   return (
     <Grid
@@ -20,7 +47,7 @@ export const Auth: ComponentType = () => {
         <Typography variant="h4">{t("auth")}</Typography>
       </Grid>
       <Grid item xs={12} lg={6}>
-        <AuthForm />
+        <AuthForm submitForm={submitForm} />
       </Grid>
     </Grid>
   );

@@ -1,11 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
+import { authReducer } from "../features/auth";
 import { currentLocaleReducer } from "../features/currentLocale";
-import { testReducer } from "../features/test";
 
 const store = configureStore({
   reducer: {
     currentLocale: currentLocaleReducer,
-    test: testReducer,
+    auth: authReducer,
   },
 });
 

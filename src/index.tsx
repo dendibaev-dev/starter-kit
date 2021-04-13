@@ -11,17 +11,15 @@ import { App } from "./components/App";
 import Preloader from "./components/preloader";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <StylesProvider injectFirst>
-      <ThemeProvider theme={theme}>
-        <Provider store={store}>
-          <Suspense fallback={<Preloader />}>
-            <CssBaseline />
-            <App />
-          </Suspense>
-        </Provider>
-      </ThemeProvider>
-    </StylesProvider>
-  </React.StrictMode>,
+  <StylesProvider injectFirst>
+    <ThemeProvider theme={theme}>
+      <Provider store={store}>
+        <Suspense fallback={<Preloader />}>
+          <CssBaseline />
+          <App />
+        </Suspense>
+      </Provider>
+    </ThemeProvider>
+  </StylesProvider>,
   document.getElementById("root")
 );

@@ -3,6 +3,7 @@
   "action.confirm": "Тасдиқлаш",
   "action.no": "Ёок",
   "action.backHome": "Бош саҳифага қайтиш",
+  "action.failed": "",
   "page.notFound": "Кечирасиз, саҳифа топилмади!",
   "page.notFound.text": "Кечирасиз, сиз қидираётган саҳифани топа олмадик. Еҳтимол УРЛ мистйпед айтинг? Сизнинг имло текшириш учун ишонч ҳосил қилинг.",
   "auth": "Авторизация",
@@ -12,5 +13,6 @@
   "login": "Логин",
   "login.placeholder": "Логини киритинг",
   "password": "Пароль",
-  "password.placeholder": "Паролни киритинг"
+  "password.placeholder": "Паролни киритинг",
+  "auth.form.inValid": ""
 }

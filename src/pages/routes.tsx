@@ -1,3 +1,4 @@
+import { SnackbarProvider } from "notistack";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch } from "react-redux";
@@ -19,12 +20,19 @@ export const Routes = () => {
 
   return (
     <LayoutPublic>
-      <Switch>
-        <Route exact path={`/:lng/`} component={HomePage} />
-        <Route exact path={`/:lng/auth`} component={AuthPage} />
-        <Route exact path={`/:lng/post/:id`} component={PostPage} />
-        <Route component={NotFoundPage} />
-      </Switch>
+      <SnackbarProvider
+        anchorOrigin={{
+          vertical: "top",
+          horizontal: "right",
+        }}
+      >
+        <Switch>
+          <Route exact path={`/:lng/`} component={HomePage} />
+          <Route exact path={`/:lng/auth`} component={AuthPage} />
+          <Route exact path={`/:lng/post/:id`} component={PostPage} />
+          <Route component={NotFoundPage} />
+        </Switch>
+      </SnackbarProvider>
     </LayoutPublic>
   );
 };
