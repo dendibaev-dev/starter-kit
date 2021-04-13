@@ -1,0 +1,14 @@
+import { makeStyles, Theme } from "@material-ui/core";
+
+const options = {
+  name: "dashboard",
+};
+
+const useStyles = makeStyles(
+  (theme: Theme) => ({
+    root: {},
+  }),
+  options
+);
+
+export default useStyles;
