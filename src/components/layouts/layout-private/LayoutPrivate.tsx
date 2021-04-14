@@ -1,5 +1,5 @@
 import { Container, Drawer, Hidden } from "@material-ui/core";
-import { ComponentType } from "react";
+import { ComponentType, useState } from "react";
 import Footer from "../../footer";
 import Header from "../../header";
 import Sidebar from "../../sidebar";
@@ -8,14 +8,20 @@ import useStyles from "./styles";
 export const LayoutPrivate: ComponentType = ({ children }) => {
   const classes = useStyles();
 
-  console.log(`LayoutPrivate`);
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
+
   return (
     <div className={classes.root}>
       <aside className={classes.colSidebar}>
         <Hidden lgUp implementation="css">
           <Drawer
             variant="temporary"
-            open={false}
+            open={mobileOpen}
+            onClose={handleDrawerToggle}
             ModalProps={{
               keepMounted: true,
             }}
@@ -31,7 +37,7 @@ export const LayoutPrivate: ComponentType = ({ children }) => {
       </aside>
       <main className={classes.colMain}>
         <header className={classes.header}>
-          <Header />
+          <Header mode="private" handleDrawerToggle={handleDrawerToggle} />
         </header>
         <Container maxWidth="lg" className={classes.container}>
           {children}

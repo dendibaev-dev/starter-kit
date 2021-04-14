@@ -6,11 +6,11 @@ import useStyles from "./styles";
 
 export const LayoutPublic: ComponentType = ({ children }) => {
   const classes = useStyles();
-  console.log(`LayoutPublic`);
+
   return (
     <div className={classes.root}>
       <header className={classes.header}>
-        <Header />
+        <Header mode="public" />
       </header>
       <Container maxWidth="lg" className={classes.container}>
         {children}

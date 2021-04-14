@@ -22,6 +22,9 @@ const useStyles = makeStyles(
         minWidth: 84,
       },
     },
+    actionsRight: {
+      marginLeft: "auto",
+    },
   }),
   options
 );
