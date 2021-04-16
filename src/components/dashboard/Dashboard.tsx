@@ -4,7 +4,6 @@ import useStyles from "./styles";
 
 export const Dashboard: ComponentType = () => {
   const classes = useStyles();
-  // const { t } = useTranslation();
 
   return (
     <Grid

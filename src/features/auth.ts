@@ -3,10 +3,10 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 export const { reducer: authReducer, actions: authActions } = createSlice({
   name: "auth",
   initialState: {
+    isSigned: false,
     isLoading: false,
     success: false,
     errors: false as Record<string, string> | any,
-    list: [] as Record<string, any>[],
   },
   reducers: {
     loginRequest: (state) => {
@@ -16,10 +16,15 @@ export const { reducer: authReducer, actions: authActions } = createSlice({
       state.isLoading = false;
       state.errors = payload.errors;
       state.success = payload.success;
+      state.isSigned = true;
     },
     loginFailed: (state) => {
       state.isLoading = false;
       state.errors = { text: "action.failed" };
+    },
+    logout: (state) => {
+      state.success = false;
+      state.isSigned = false;
     },
   },
 });

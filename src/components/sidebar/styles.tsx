@@ -22,6 +22,11 @@ const useStyles = makeStyles(
     },
     link: {},
     activeLink: {},
+    footer: {
+      display: "flex",
+      justifyContent: "center",
+      marginTop: "auto",
+    },
   }),
   options
 );

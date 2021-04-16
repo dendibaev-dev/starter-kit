@@ -1,51 +1,46 @@
-import { SnackbarProvider } from "notistack";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { useDispatch } from "react-redux";
-import { Route, Switch } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Route, Switch, useRouteMatch } from "react-router-dom";
+import { State } from "../common/store";
+import Dashboard from "../components/dashboard";
 import { LayoutPrivate, LayoutPublic } from "../components/layouts";
 import { currentLocaleActions } from "../features/currentLocale";
 import AuthPage from "./AuthPage";
-import DashboardPage from "./DashboardPage";
 import HomePage from "./HomePage";
-import NotFoundPage from "./NotFoundPage";
-import PostPage from "./PostPage";
 
 export const Routes = () => {
   const dispatch = useDispatch();
   const { i18n } = useTranslation();
+  const isSigned = useSelector((state: State) => state.auth.isSigned);
+
+  const match = useRouteMatch();
+  const url = match.url === "/" ? "" : match.url;
 
   useEffect(() => {
     dispatch(currentLocaleActions.handleLocale(i18n.language));
   }, [dispatch, i18n.language]);
 
-  // #TODO need fix multi-layout routes
-  return (
-    <SnackbarProvider
-      anchorOrigin={{
-        vertical: "top",
-        horizontal: "right",
-      }}
-    >
-      <Switch>
-        <Route path="/:lng/dashboard/:path?" exact>
-          <LayoutPrivate>
-            <Switch>
-              <Route exact path={`/:lng/dashboard`} component={DashboardPage} />
-              <Route exact path={`/:lng/dashboard/post`} component={PostPage} />
-            </Switch>
-          </LayoutPrivate>
-        </Route>
-        <Route path="/:lng/:path?" exact>
-          <LayoutPublic>
-            <Switch>
-              <Route exact path={`/:lng/`} component={HomePage} />
-              <Route exact path={`/:lng/auth`} component={AuthPage} />
-            </Switch>
-          </LayoutPublic>
-        </Route>
-        <Route path="*" component={NotFoundPage} />
-      </Switch>
-    </SnackbarProvider>
-  );
+  let routes;
+
+  if (!isSigned) {
+    routes = (
+      <LayoutPublic>
+        <Switch>
+          <Route path={`${url}/`} component={HomePage} exact />
+          <Route path={`${url}/auth`} component={AuthPage} exact />
+        </Switch>
+      </LayoutPublic>
+    );
+  } else {
+    routes = (
+      <LayoutPrivate>
+        <Switch>
+          <Route path={`${url}/dashboard`} component={Dashboard} />
+        </Switch>
+      </LayoutPrivate>
+    );
+  }
+
+  return routes;
 };

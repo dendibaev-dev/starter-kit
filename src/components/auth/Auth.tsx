@@ -3,7 +3,6 @@ import { useSnackbar } from "notistack";
 import { ComponentType, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router";
 import { State } from "../../common/store";
 import { login } from "../../thunks/auth";
 import AuthForm from "./auth-form";
@@ -16,11 +15,10 @@ export const Auth: ComponentType = () => {
   const { enqueueSnackbar } = useSnackbar();
 
   const authErrors = useSelector((state: State) => state.auth.errors);
-  const authSuccess = useSelector((state: State) => state.auth.success);
   const currentLocale = useSelector((state: State) => state.currentLocale);
 
   const submitForm = (data: Record<string, any>) => {
-    dispatch(login(data));
+    dispatch(login(data, `/${currentLocale}/dashboard`));
   };
 
   useEffect(() => {
@@ -30,10 +28,6 @@ export const Auth: ComponentType = () => {
       });
     }
   }, [authErrors, enqueueSnackbar, t]);
-
-  if (authSuccess) {
-    return <Redirect to={`/${currentLocale}/dashboard`} />;
-  }
 
   return (
     <Grid

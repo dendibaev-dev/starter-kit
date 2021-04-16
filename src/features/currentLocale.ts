@@ -5,7 +5,7 @@ export const {
   actions: currentLocaleActions,
 } = createSlice({
   name: "current-locale",
-  initialState: "ru",
+  initialState: "uz",
   reducers: {
     handleLocale: (_, { payload }: PayloadAction<string>) => payload,
   },
