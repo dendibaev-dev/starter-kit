@@ -1,9 +1,9 @@
 import { Button, Divider } from "@material-ui/core";
 import { ComponentType } from "react";
 import { useDispatch } from "react-redux";
-import { NavLink } from "react-router-dom";
 import { logout } from "../../thunks/auth";
 import Logo from "../logo";
+import SidebarNav from "./sidebar-nav/Sidebar-nav";
 import useStyles from "./styles";
 
 export const Sidebar: ComponentType = () => {
@@ -18,19 +18,9 @@ export const Sidebar: ComponentType = () => {
         <Logo text="Starter kit" />
       </div>
       <Divider />
-      <div className={classes.nav}>
-        <NavLink className={classes.link} to="#">
-          Overview
-        </NavLink>
-        <NavLink className={classes.link} to="#">
-          Finance
-        </NavLink>
-        <NavLink className={classes.link} to="#">
-          Account
-        </NavLink>
-      </div>
+      <SidebarNav />
       <div className={classes.footer}>
-        <Button onClick={exit} variant="outlined">
+        <Button onClick={exit} variant="outlined" color="inherit">
           Log out
         </Button>
       </div>

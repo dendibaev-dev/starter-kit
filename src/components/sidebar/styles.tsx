@@ -7,6 +7,8 @@ const options = {
 const useStyles = makeStyles(
   (theme: Theme) => ({
     root: {
+      display: "flex",
+      flexDirection: "column",
       height: "100%",
       width: "100%",
       minWidth: 280,
@@ -15,17 +17,11 @@ const useStyles = makeStyles(
     header: {
       padding: theme.spacing(1.5, 1),
     },
-    nav: {
-      display: "flex",
-      flexDirection: "column",
-      padding: theme.spacing(1.5, 1),
-    },
-    link: {},
-    activeLink: {},
     footer: {
       display: "flex",
       justifyContent: "center",
       marginTop: "auto",
+      padding: theme.spacing(1.5, 0),
     },
   }),
   options
