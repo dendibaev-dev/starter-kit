@@ -1,28 +1,42 @@
 import { useEffect } from "react";
-import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import { State } from "../common/store";
-import { Routes } from "../pages/routes";
+import { AuthPage, DashboardPage, HomePage } from "../pages";
 import { checkAuth } from "../thunks/auth";
+import { LayoutPrivate, LayoutPublic } from "./layouts";
 
 export const App = () => {
-  const { i18n } = useTranslation();
   const dispatch = useDispatch();
   const currentLocale = useSelector((state: State) => state.currentLocale);
+  const isSigned = useSelector((state: State) => state.auth.isSigned);
 
   useEffect(() => {
-    dispatch(checkAuth(`/${currentLocale}/`)); // #TODO redirect
+    dispatch(checkAuth());
   }, [dispatch, currentLocale]);
 
-  return (
-    <Switch>
-      <Route path={`/${i18n.language}`}>
-        <Routes />
-      </Route>
-      <Route>
-        <Routes />
-      </Route>
-    </Switch>
-  );
+  let routes;
+
+  if (!isSigned) {
+    routes = (
+      <LayoutPublic>
+        <Switch>
+          <Route path={`/`} component={HomePage} exact />
+          <Route path={`/auth`} component={AuthPage} exact />
+          <Redirect to={`/`} />
+        </Switch>
+      </LayoutPublic>
+    );
+  } else {
+    routes = (
+      <LayoutPrivate>
+        <Switch>
+          <Route path={`/dashboard`} component={DashboardPage} />
+          <Redirect to={`/dashboard`} />
+        </Switch>
+      </LayoutPrivate>
+    );
+  }
+
+  return routes;
 };

@@ -4,7 +4,7 @@ import Backend from "i18next-http-backend";
 import { initReactI18next } from "react-i18next";
 
 const options = {
-  order: ["path"],
+  order: ["localStorage"],
   lookupFromPathIndex: 0,
   checkWhitelist: true,
 };

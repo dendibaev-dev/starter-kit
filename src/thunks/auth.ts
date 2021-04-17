@@ -17,10 +17,9 @@ export const login = (data: any, successUrl: string) => async (
   }
 };
 
-export const checkAuth = (successUrl: string) => async (dispatch: Dispatch) => {
+export const checkAuth = () => async (dispatch: Dispatch) => {
   dispatch(authActions.loginRequest());
   if (Boolean(localStorage.getItem("is-signed"))) {
-    history.push(successUrl);
     dispatch(authActions.loginSuccess({ success: true, errors: false }));
   }
 };

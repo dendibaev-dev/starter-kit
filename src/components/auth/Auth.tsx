@@ -15,10 +15,9 @@ export const Auth: ComponentType = () => {
   const { enqueueSnackbar } = useSnackbar();
 
   const authErrors = useSelector((state: State) => state.auth.errors);
-  const currentLocale = useSelector((state: State) => state.currentLocale);
 
   const submitForm = (data: Record<string, any>) => {
-    dispatch(login(data, `/${currentLocale}/dashboard`));
+    dispatch(login(data, "/dashboard"));
   };
 
   useEffect(() => {
